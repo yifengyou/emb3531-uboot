@@ -87,3 +87,6 @@ GTAGS
 *.orig
 *~
 \#*#
+
+/out
+/extracted_fdt.dtb

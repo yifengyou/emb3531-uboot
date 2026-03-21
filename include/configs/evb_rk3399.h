@@ -9,10 +9,10 @@
 
 #include <configs/rk3399_common.h>
 
-#ifndef CONFIG_SPL_BUILD
+#undef RKIMG_BOOTCOMMAND
+#define RKIMG_BOOTCOMMAND "sysboot mmc 0:3 any 0x00500000 extlinux.conf"
 #undef CONFIG_BOOTCOMMAND
-#define CONFIG_BOOTCOMMAND RKIMG_BOOTCOMMAND
-#endif
+#define CONFIG_BOOTCOMMAND "sysboot mmc 0:3 any 0x00500000 extlinux.conf"
 
 #define CONFIG_MMC_SDHCI_SDMA
 #define CONFIG_SYS_MMC_ENV_DEV 0

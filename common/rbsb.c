@@ -479,10 +479,10 @@ io_mode(int fd, int n)
 #endif
 #ifdef TIOCFLUSH
 		{ int x=1; ioctl(fd,TIOCFLUSH,&x); }
-#endif
-#endif
-
 		return OK;
+#endif
+		return OK;
+#endif
 	default:
 		return ERROR;
 	}
