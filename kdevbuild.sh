@@ -4,10 +4,15 @@
 set -xe
 
 
-make ARCH=arm CROSS_COMPILE=aarch64-linux-gnu- emb3531-rk3399_defconfig all O=out
+make ARCH=arm CROSS_COMPILE=aarch64-linux-gnu- emb3531-rk3399_defconfig all O=out -j$(nproc)
 
 rkthings/loaderimage --pack --uboot out/u-boot-dtb.bin out/uboot.img 0x200000
 
+ls -alh out/uboot.img
+
+cd rkthings
+./trust_merger trust.ini
+mv trust.img ../out/
 
 exit 0
 
