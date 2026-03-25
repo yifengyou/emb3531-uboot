@@ -26,5 +26,11 @@ cd ${WORKDIR}
 ls -alh ./arch/arm/dts/rk3399-emb3531.dtb
 dtc -I dtb -O dts ./arch/arm/dts/rk3399-emb3531.dtb -o dts.patch
 
+dd if=uboot.img of=extracted_fdt.dtb bs=1 skip=582576 count=11187
+find . -name "*.dtb" |xargs -i md5sum {} | grep  d74889f35bb5796dfe9db1f771775e6b
+md5sum extracted_fdt.dtb dtb-uboot.dtb
+
 exit 0
+
+
 
