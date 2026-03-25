@@ -87,3 +87,6 @@ GTAGS
 \#*#
 
 out
+/trust.img
+/uboot.img
+/*.dtb

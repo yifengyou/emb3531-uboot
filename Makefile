@@ -873,6 +873,11 @@ dtbs: dts/dt.dtb
 	@:
 dts/dt.dtb: checkdtc u-boot
 	$(Q)$(MAKE) $(build)=dts dtbs
+	md5sum arch/arm/dts/rk3399-emb3531.dtb
+	pwd
+	cp -a dtb-uboot.dtb arch/arm/dts/rk3399-emb3531.dtb
+	cp -a dtb-uboot.dtb dts/dt.dtb
+	md5sum arch/arm/dts/rk3399-emb3531.dtb
 
 quiet_cmd_copy = COPY    $@
       cmd_copy = cp $< $@

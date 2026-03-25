@@ -62,6 +62,22 @@ U_BOOT_CMD(
 	""
 );
 
+static int do_reboot_brom(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
+{
+	//writel(BOOT_BROM_DOWNLOAD, CONFIG_ROCKCHIP_BOOT_MODE_REG);
+	//do_reset(NULL, 0, 0, NULL);
+	set_back_to_bootrom_dnl_flag();
+	do_reset(NULL, 0, 0, NULL);
+
+	return 0;
+}
+
+U_BOOT_CMD(
+	rbrom, 1, 0,	do_reboot_brom,
+	"Perform RESET of the CPU",
+	""
+);
+
 #ifdef CONFIG_CMD_POWEROFF
 U_BOOT_CMD(
 	poweroff, 1, 0,	do_poweroff,

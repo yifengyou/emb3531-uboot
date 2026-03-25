@@ -141,11 +141,6 @@ static int do_rkusb(cmd_tbl_t *cmdtp, int flag, int argc, char *const argv[])
 	int rc;
 	int cable_ready_timeout __maybe_unused;
 
-	// kdev, just enter maskrom, skip loader mode
-
-	set_back_to_bootrom_dnl_flag();
-	do_reset(NULL, 0, 0, NULL);
-
 	if (argc != 4)
 		return CMD_RET_USAGE;
 
